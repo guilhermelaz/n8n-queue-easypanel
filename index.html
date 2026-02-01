@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N8N Queue Mode - Gerador de Template Easypanel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Guilherme Lazarotto</h1>
+        </header>
+
+        <main>
+            <section class="intro">
+                <h2>N8N Queue Mode - Easypanel Template Generator</h2>
+                <p>Gere o template completo do N8N em modo fila com Redis, PostgreSQL e Python Task Runner para deploy no Easypanel.</p>
+                <p>Será gerado um arquivo .json com todas as configurações prontas para importar no Easypanel.</p>
+            </section>
+
+            <section class="form-section">
+                <h3>Configurações do N8N</h3>
+                
+                <div class="form-group">
+                    <label for="projectName">Nome do Projeto:</label>
+                    <input type="text" id="projectName" placeholder="n8n-queue" value="n8n-queue" required>
+                    <small>Nome do projeto no Easypanel</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="domain">Domínio do Editor:</label>
+                    <input type="text" id="domain" placeholder="n8n.seudominio.com" required>
+                    <small>Domínio para acessar o editor do N8N</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="webhookDomain">Domínio do Webhook:</label>
+                    <input type="text" id="webhookDomain" placeholder="n8n-webhook.seudominio.com" required>
+                    <small>Domínio para receber webhooks (recomendado usar subdomínio separado)</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="n8nVersion">Versão do N8N:</label>
+                    <input type="text" id="n8nVersion" placeholder="1.70.0" value="1.70.0" required>
+                    <small>Versão da imagem Docker do N8N</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="timezone">Timezone:</label>
+                    <input type="text" id="timezone" placeholder="America/Sao_Paulo" value="America/Sao_Paulo" required>
+                    <small>Fuso horário para o N8N</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="encryptionKey">Encryption Key:</label>
+                    <input type="text" id="encryptionKey" placeholder="Cole aqui a chave de criptografia" required>
+                    <small>Chave de criptografia (gere em: <a href="https://acte.ltd/utils/randomkeygen" target="_blank">https://acte.ltd/utils/randomkeygen</a>)</small>
+                </div>
+
+                <h3>Configurações de Queue Mode</h3>
+
+                <div class="form-group">
+                    <label for="workerCount">Número de Workers:</label>
+                    <input type="range" id="workerCount" min="1" max="5" value="2" step="1">
+                    <span id="workerCountValue" class="range-value">2</span>
+                    <small>Quantidade de workers para processar as filas (1-5)</small>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label>
+                        <input type="checkbox" id="includePythonRunner" checked>
+                        <span>Incluir Python Task Runner</span>
+                    </label>
+                    <small>Adiciona suporte para executar código Python nos workflows</small>
+                </div>
+
+                <h3>Configurações do Banco de Dados</h3>
+
+                <div class="form-group">
+                    <label for="dbPassword">Senha do PostgreSQL:</label>
+                    <input type="password" id="dbPassword" placeholder="Senha segura para o banco" required>
+                    <small>Senha para o banco de dados PostgreSQL</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="redisPassword">Senha do Redis:</label>
+                    <input type="password" id="redisPassword" placeholder="Senha segura para o Redis" required>
+                    <small>Senha para o Redis (usado para gerenciar a fila)</small>
+                </div>
+
+                <div class="button-group">
+                    <button id="generateBtn" class="btn-primary">Gerar Template</button>
+                    <button id="copyBtn" class="btn-secondary" style="display: none;">Copiar JSON</button>
+                </div>
+            </section>
+
+            <section class="output-section" id="outputSection" style="display: none;">
+                <h3>Template Gerado</h3>
+                <div class="output-info">
+                    <p>✅ Template gerado com sucesso! Você pode copiar o JSON abaixo ou fazer o download.</p>
+                </div>
+                <pre id="jsonOutput"></pre>
+                <button id="downloadBtn" class="btn-primary">Download JSON</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>© 2025 Guilherme Lazarotto</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

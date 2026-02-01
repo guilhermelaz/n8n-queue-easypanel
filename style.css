@@ -1,0 +1,361 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+    background: #303030;
+    background-attachment: fixed;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: #303030;
+    background-image: radial-gradient(#555 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.5;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #fff;
+}
+
+main {
+    width: 100%;
+    max-width: 1000px;
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.intro {
+    background: #1A1A1A;
+    padding: 1.2rem 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+}
+
+.intro h2 {
+    color: #FF6B6B;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.intro p {
+    color: #ccc;
+    margin: 0.5rem 0 0;
+    font-size: 0.9rem;
+}
+
+.form-section {
+    padding: 1.5rem;
+}
+
+.form-section h3 {
+    color: #BBBBBB;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-section h3:first-child {
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #BBBBBB;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background: #2B2B2B;
+    color: #fff;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none;
+    border-color: #5096FF;
+    box-shadow: 0 0 0 1px rgba(80, 150, 255, 0.3);
+}
+
+.form-group input[type="range"] {
+    width: calc(100% - 60px);
+    height: 6px;
+    border-radius: 3px;
+    background: #444;
+    outline: none;
+    appearance: none;
+    -webkit-appearance: none;
+    margin-right: 15px;
+}
+
+.form-group input[type="range"]::-webkit-slider-thumb {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #FF6B6B;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="range"]::-webkit-slider-thumb:hover {
+    background: #FF5252;
+    transform: scale(1.2);
+}
+
+.form-group input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #FF6B6B;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input[type="range"]::-moz-range-thumb:hover {
+    background: #FF5252;
+    transform: scale(1.2);
+}
+
+.range-value {
+    display: inline-block;
+    min-width: 40px;
+    padding: 6px 12px;
+    background: #FF6B6B;
+    color: white;
+    border-radius: 4px;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #FF6B6B;
+}
+
+.checkbox-group span {
+    font-weight: 500;
+    color: #fff;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 8px;
+    color: #999;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.form-group small a {
+    color: #5096FF;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.form-group small a:hover {
+    text-decoration: underline;
+    color: #6BA6FF;
+}
+
+.button-group {
+    display: flex;
+    gap: 15px;
+    margin-top: 2rem;
+}
+
+.btn-primary,
+.btn-secondary {
+    flex: 1;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: #FF6B6B;
+    color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    background: #FF5252;
+}
+
+.btn-primary:active {
+    background: #E64A4A;
+}
+
+.btn-secondary {
+    background: #2B2B2B;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.btn-secondary:hover {
+    background: #333;
+    border-color: #555;
+}
+
+.output-section {
+    padding: 1.5rem;
+    background: #1A1A1A;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.output-section h3 {
+    color: #FF6B6B;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.output-info {
+    background: rgba(107, 255, 107, 0.1);
+    border: 1px solid rgba(107, 255, 107, 0.3);
+    border-radius: 4px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.output-info p {
+    color: #6BFF6B;
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+#jsonOutput {
+    background: #222;
+    color: #f8f8f2;
+    padding: 15px;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    border: 1px solid #444;
+}
+
+#downloadBtn {
+    width: 100%;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    color: #888;
+    font-size: 0.8rem;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    .intro h2 {
+        font-size: 1.3rem;
+    }
+
+    .intro p {
+        font-size: 0.85rem;
+    }
+
+    .form-section {
+        padding: 1.2rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .form-group input[type="range"] {
+        width: calc(100% - 50px);
+    }
+
+    .output-section {
+        padding: 1.2rem;
+    }
+}
