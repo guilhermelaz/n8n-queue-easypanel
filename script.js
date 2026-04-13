@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function() {
             `EXECUTIONS_DATA_MAX_AGE=336`,
             `GENERIC_TIMEZONE=${timezone}`,
             `N8N_ENFORCE_SETTINGS_FILE_PERMISSIONS=true`,
-            `N8N_DEFAULT_BINARY_DATA_MODE=filesystem`,
             `N8N_TRUST_PROXY=true`
         ];
 
